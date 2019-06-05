@@ -1,0 +1,19 @@
+title: using powershell to disable windows defender 
+status: experimental
+description: Detects PowerShell disabling windows defender in command line 
+references:
+    - https://redcanary.com/resources/webinars/attck-deep-dive-defense-evasion/
+tags:
+    - attack.defense_evasion
+    - attack.execution.t1086
+    - attack.disable.security.tools.t1089
+author: kiran kumar
+logsource:
+    product: windows
+    service: powershell-classic
+detection:
+    keywords:
+        - powershell Set-MpPreference-DisableRealTimeMonitoring $true
+falsepositives:
+    - Unknown
+level: high
